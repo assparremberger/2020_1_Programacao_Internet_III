@@ -15,6 +15,7 @@ namespace Lojinha.Data
         }
 
         public DbSet<Lojinha.Models.Produto> Produto { get; set; }
+        public DbSet<Lojinha.Models.Categoria> Categoria { get; set; }
 
         public DbSet<Lojinha.Models.Cliente> Cliente { get; set; }
     }

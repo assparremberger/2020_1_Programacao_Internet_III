@@ -43,3 +43,5 @@ C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Cli
 C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Clientes\Details.cshtml.g.cs
 C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Clientes\Edit.cshtml.g.cs
 C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Clientes\Index.cshtml.g.cs
+C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Categorias\Index.cshtml.g.cs
+C:\Users\Eu\source\repos\Lojinha\Lojinha\obj\Debug\netcoreapp2.1\Razor\Views\Categorias\Create.cshtml.g.cs
