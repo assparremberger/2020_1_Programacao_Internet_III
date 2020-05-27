@@ -27,5 +27,35 @@ namespace Lojinha.Services
         {
             return _context.Categoria.OrderBy(x => x.Nome).ToList();
         }
+
+        public Categoria getCategoriaById(int id)
+        {
+
+            return _context.Categoria.FirstOrDefault(cat => cat.Id == id);
+        }
+
+        public void editar(Categoria categoria)
+        {
+            if (_context.Categoria.Any(cat => cat.Id == categoria.Id))
+            {
+                try
+                {
+                    _context.Update(categoria);
+                    _context.SaveChanges();
+                }
+                catch (Exception e)
+                {
+
+                }
+            }
+        }
+
+        public void excluir(int id)
+        {
+            var cat = getCategoriaById(id);
+            _context.Categoria.Remove(cat);
+            _context.SaveChanges();
+            
+        }
     }
 }

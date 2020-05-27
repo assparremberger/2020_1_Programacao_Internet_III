@@ -39,21 +39,21 @@ namespace Lojinha.Controllers
         }
 
         // GET: Produtos/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Details(int? id)
         {
-            if (id == null)
+            if( id == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
+            var prod = _produtoService.getProdutoById(id.Value);
+
+            if( prod == null)
             {
                 return NotFound();
             }
 
-            return View(produto);
+            return View(prod);
         }
 
         // GET: Produtos/Create
@@ -91,84 +91,81 @@ namespace Lojinha.Controllers
               */
 
         // GET: Produtos/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public IActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produto.FindAsync(id);
+            var produto = _produtoService.getProdutoById(id.Value);
             if (produto == null)
             {
                 return NotFound();
             }
-            return View(produto);
+
+            List<Categoria> categorias = _categoriaService.getCategorias();
+            ProdutoViewModel viewModel = new ProdutoViewModel
+            {
+                Produto = produto,
+                Categorias = categorias
+            };
+
+            return View(viewModel);
         }
 
-        // POST: Produtos/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Nome,Preco,Quantidade")] Produto produto)
+        public IActionResult Edit(int id, ProdutoViewModel produtoViewModel)
         {
-            if (id != produto.Id)
+            if (id != produtoViewModel.Produto.Id)
             {
                 return NotFound();
             }
 
-            if (ModelState.IsValid)
+            try
             {
-                try
+                _produtoService.Editar(produtoViewModel.Produto);
+            
+            }catch(Exception e)
+            {
+
+            }
+
+            
+            return RedirectToAction( nameof(Index));
+        }
+
+       
+        public IActionResult Delete(int? id)
+        {
+            if( id != null )
+            {
+                var prod = _produtoService.getProdutoById(id.Value);
+                if( prod == null )
                 {
-                    _context.Update(produto);
-                    await _context.SaveChangesAsync();
+                    return NotFound();
                 }
-                catch (DbUpdateConcurrencyException)
+                else
                 {
-                    if (!ProdutoExists(produto.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
+                    return View(prod);
                 }
-                return RedirectToAction(nameof(Index));
             }
-            return View(produto);
-        }
-
-        // GET: Produtos/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
+            else
             {
                 return NotFound();
             }
 
-            var produto = await _context.Produto
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (produto == null)
-            {
-                return NotFound();
-            }
-
-            return View(produto);
         }
 
-        // POST: Produtos/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        [HttpPost]
+        public IActionResult Delete(int id)
         {
-            var produto = await _context.Produto.FindAsync(id);
-            _context.Produto.Remove(produto);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            _produtoService.Excluir(id);
+            return RedirectToAction( nameof(Index));
         }
+
 
         private bool ProdutoExists(int id)
         {

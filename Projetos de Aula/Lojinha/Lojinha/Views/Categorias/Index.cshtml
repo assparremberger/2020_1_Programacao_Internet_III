@@ -15,14 +15,20 @@
         <tr class="success">
             <th>@Html.DisplayNameFor( model => model.Id )</th>
             <th>@Html.DisplayNameFor( model => model.Nome )</th>
+            <th></th>
         </tr>
     </thead>
 
     <tbody>
         @foreach( var cat in Model ){
         <tr>
-            <td>@Html.DisplayFor( modelItem => cat.Id )</td>
-            <td>@Html.DisplayFor( modelItem => cat.Nome )</td>
+            <td>@Html.DisplayFor(modelItem => cat.Id)</td>
+            <td>@Html.DisplayFor(modelItem => cat.Nome)</td>
+            <td>
+                <a asp-action="Editar" asp-route-id="@cat.Id">Editar</a> |
+                <a asp-action="Details" asp-route-id="@cat.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@cat.Id">Delete</a>
+            </td>
         </tr>
         }
 

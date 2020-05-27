@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Eu\\source\\repos\\Lojinha\\Lojinha\\Lojinha.csproj": {}
+    "C:\\Users\\Eu\\source\\repos\\ProgInternet3\\Projetos de Aula\\Lojinha\\Lojinha\\Lojinha.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Eu\\source\\repos\\Lojinha\\Lojinha\\Lojinha.csproj": {
+    "C:\\Users\\Eu\\source\\repos\\ProgInternet3\\Projetos de Aula\\Lojinha\\Lojinha\\Lojinha.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Eu\\source\\repos\\Lojinha\\Lojinha\\Lojinha.csproj",
+        "projectUniqueName": "C:\\Users\\Eu\\source\\repos\\ProgInternet3\\Projetos de Aula\\Lojinha\\Lojinha\\Lojinha.csproj",
         "projectName": "Lojinha",
-        "projectPath": "C:\\Users\\Eu\\source\\repos\\Lojinha\\Lojinha\\Lojinha.csproj",
+        "projectPath": "C:\\Users\\Eu\\source\\repos\\ProgInternet3\\Projetos de Aula\\Lojinha\\Lojinha\\Lojinha.csproj",
         "packagesPath": "C:\\Users\\Eu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Eu\\source\\repos\\Lojinha\\Lojinha\\obj\\",
+        "outputPath": "C:\\Users\\Eu\\source\\repos\\ProgInternet3\\Projetos de Aula\\Lojinha\\Lojinha\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"

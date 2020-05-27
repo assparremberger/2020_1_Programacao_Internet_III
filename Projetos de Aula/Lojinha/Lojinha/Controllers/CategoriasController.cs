@@ -36,5 +36,28 @@ namespace Lojinha.Controllers
             // ou
             return RedirectToAction(nameof(Index));
         }
+
+
+        [HttpGet]
+        public IActionResult Editar(int id)
+        {
+            var categoria = _categoriaService.getCategoriaById(id);
+
+            return View(categoria);
+
+        }
+
+        [HttpPost]
+        public IActionResult Editar(int id, Categoria categoria)
+        {
+            
+            if( id == categoria.Id)
+            {
+                _categoriaService.editar(categoria);
+            }
+
+            return RedirectToAction( nameof( Index ) );
+        }
+
     }
 }
